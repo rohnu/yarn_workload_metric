@@ -97,6 +97,6 @@ core_max_df = core_grouped_df.groupby(['cluster','application_type','pool'])['ef
 core_max_df = core_max_df.rename(columns={'eff_allocatedVCores': 'max_core'})
 core_df = pd.merge(core_min_df, core_max_df, on=[ 'cluster','application_type','pool'], how='inner')
 memory_df= pd.merge(memory_min_df, memory_max_df, on= ['cluster','application_type','pool'], how='inner')
-edl_prd_m01_wxm=pd.merge(core_df, memory_df, on=[ 'cluster','application_type','pool'], how='inner')
+total_wxm=pd.merge(core_df, memory_df, on=[ 'cluster','application_type','pool'], how='inner')
 # Display the resulting DataFrame
-print(tabulate(edl_prd_m01_wxm, headers='keys', tablefmt='psql'))
+print(tabulate(toal_wxm, headers='keys', tablefmt='psql'))
